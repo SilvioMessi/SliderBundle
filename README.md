@@ -101,6 +101,10 @@ return $this->render('default/index.html.twig', [
 
 ```
 
+## Documentation
+
+[Slider Options](https://github.com/SilvioMessi/DatatablesBundle/blob/master/Resources/doc/options.md)
+
 ## License
 
 This bundle is released under the MIT license. See the complete license in the

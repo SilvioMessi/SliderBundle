@@ -19,19 +19,26 @@
         noUiSlider.create(slider_{{ options.slider_id }}, {
             start: [{{ options.start|join(',') }}],
             range: {
-                'min': [{{ options.range_min|join(',') }}],
-                'max': [{{ options.range_max|join(',') }}],
+                'min': [{{ options.range_min }}],
+                'max': [{{ options.range_max }}],
                 {% if options.range_steps is defined %}
-                {% for percentage, step in options.range_steps %}
-                '{{ percentage }}': [{{ step|join(',') }}],
+                {% for percentage, percentage_info in options.range_steps %}
+                '{{ percentage }}': [
+                    {% if percentage_info.value is defined %}
+                        {{ percentage_info.value }}
+                        {% if percentage_info.step is defined %}
+                            ,{{ percentage_info.step }}
+                        {% endif %}
+                    {% endif %}
+                ],
                 {% endfor %}
                 {% endif %}
             },
+            {% if options.connect is defined %}
+            connect: "{{ options.connect }}",
+            {% endif %}
             {% if options.step is defined %}
             step: {{ options.step }},
-            {% endif %}
-            {% if options.connect is defined %}
-            connect: {{ options.connect ? 'true':'false' }},
             {% endif %}
         });
     }

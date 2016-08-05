@@ -70,7 +70,8 @@ class Slider
         $resolver->setAllowedTypes('step', 'numeric');
 
         $resolver->setDefined('connect');
-        $resolver->setAllowedTypes('connect', 'boolean');
+        $resolver->setAllowedTypes('connect', 'string');
+        $resolver->setAllowedValues('connect', array('lower', 'upper', 'true'));
 
         //events
         $resolver->setDefined('update_event');
