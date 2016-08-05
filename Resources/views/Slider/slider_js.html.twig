@@ -12,30 +12,33 @@
 {% endjavascripts %}
 
 <script>
-    var slider = document.getElementById('slider');
-    var sliderValue = document.getElementById('slider-value');
+    var slider_{{ options.slider_id }} = document.getElementById('slider_{{ options.slider_id }}');
+    var slider_value_{{ options.slider_id }} = document.getElementById('slider_value_{{ options.slider_id }}');
 
-    noUiSlider.create(slider, {
-        start: [{{ options.start|join(',') }}],
-        range: {
-            'min': [{{ options.range_min|join(',') }}],
-            'max': [{{ options.range_max|join(',') }}],
-            {% if options.range_steps is defined %}
-            {% for percentage, step in options.range_steps %}
-            '{{ percentage }}': [{{ step|join(',') }}],
-            {% endfor %}
+    try {
+        noUiSlider.create(slider_{{ options.slider_id }}, {
+            start: [{{ options.start|join(',') }}],
+            range: {
+                'min': [{{ options.range_min|join(',') }}],
+                'max': [{{ options.range_max|join(',') }}],
+                {% if options.range_steps is defined %}
+                {% for percentage, step in options.range_steps %}
+                '{{ percentage }}': [{{ step|join(',') }}],
+                {% endfor %}
+                {% endif %}
+            },
+            {% if options.step is defined %}
+            step: {{ options.step }},
             {% endif %}
-        },
-        {% if options.step is defined %}
-        step: {{ options.step }},
-        {% endif %}
-        {% if options.connect is defined %}
-        connect: {{ options.connect ? 'true':'false' }},
-        {% endif %}
-    });
+            {% if options.connect is defined %}
+            connect: {{ options.connect ? 'true':'false' }},
+            {% endif %}
+        });
+    }
+    catch (err) {
+        alert(err.message);
+    }
 
+    {% include "SilvioMessiSliderBundle:Slider:events_js.js.twig" %}
 
-    slider.noUiSlider.on('update', function (values, handle) {
-        sliderValue.innerHTML = values[handle];
-    });
 </script>

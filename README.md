@@ -58,6 +58,7 @@ Starting from Symfony 2.8, Assetic is no longer included by default in the Symfo
 //...
 $slider = $this->get('silvio_messi_slider.slider');
 $slider->setOptions(array(
+                    'slider_id' => 'my_slider',
                     'start' => array(0),
                     'range_min' => 0,
                     'range_max' => 100,
@@ -88,7 +89,7 @@ return $this->render('default/index.html.twig', [
 
     {# ... #}
 
-    <div id="slider"></div>
+    {{ slider_html_render(slider) }}
 
     {# ... #}
 

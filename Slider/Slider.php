@@ -51,6 +51,9 @@ class Slider
 
         $resolver->setDefaults(array());
 
+        $resolver->setRequired('slider_id');
+        $resolver->setAllowedTypes('slider_id', 'string');
+
         $resolver->setRequired('start');
         $resolver->setAllowedTypes('start', 'array');
 
@@ -69,6 +72,20 @@ class Slider
         $resolver->setDefined('connect');
         $resolver->setAllowedTypes('connect', 'boolean');
 
+        //events
+        $resolver->setDefined('update_event');
+
+        $resolver->setDefined('change_event');
+
+        $resolver->setDefined('set_event');
+
+        $resolver->setDefined('slide_event');
+
+        $resolver->setDefined('start_event');
+
+        $resolver->setDefined('end_event');
+
+
         $this->options = $resolver->resolve($options);
     }
 
@@ -76,5 +93,10 @@ class Slider
     {
         //TODO: templates in config.yml
         return $this->twig->render('SilvioMessiSliderBundle:Slider:slider_js.html.twig', array('options' => $this->getOptions()));
+    }
+
+    public function HTMLrender()
+    {
+        return $this->twig->render('SilvioMessiSliderBundle:Slider:slider_html.html.twig', array('options' => $this->getOptions()));
     }
 }

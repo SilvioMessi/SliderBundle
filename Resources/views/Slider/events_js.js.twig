@@ -1,0 +1,46 @@
+{##
+ # This file is part of the SilvioMessiSliderBundle package.
+ #
+ # (c) SilvioMessi <https://github.com/SilvioMessi/SliderBundle>
+ #
+ # For the full copyright and license information, please view the LICENSE
+ # file that was distributed with this source code.
+ #}
+
+slider_{{ options.slider_id }}.noUiSlider.on('update', function (values, handle) {
+    slider_value_{{ options.slider_id }}.innerHTML = values[handle];
+    {% if options.update_event is defined %}
+    {% include options.update_event %}
+    {% endif %}
+});
+
+{% if options.slide_event is defined %}
+slider_{{ options.slider_id }}.noUiSlider.on('slide', function () {
+    {% include options.slide_event %}
+});
+{% endif %}
+
+{% if options.set_event is defined %}
+slider_{{ options.slider_id }}.noUiSlider.on('set', function () {
+    {% include options.set_event %}
+});
+{% endif %}
+
+{% if options.change_event is defined %}
+slider_{{ options.slider_id }}.noUiSlider.on('change', function () {
+    {% include options.change_event %}
+});
+{% endif %}
+
+{% if options.start_event is defined %}
+slider_{{ options.slider_id }}.noUiSlider.on('start', function () {
+    {% include options.start_event %}
+});
+{% endif %}
+
+{% if options.end_event is defined %}
+slider_{{ options.slider_id }}.noUiSlider.on('end', function () {
+    {% include options.end_event %}
+});
+{% endif %}
+
