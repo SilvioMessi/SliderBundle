@@ -1,0 +1,10 @@
+services:
+    silvio_messi_slider.slider:
+        class: SilvioMessi\SliderBundle\Slider\Slider
+        arguments: ['@twig']
+
+    silvio_messi_slider.twig.extension:
+            class: SilvioMessi\SliderBundle\Twig\SliderTwigExtension
+            arguments: ['@translator']
+            tags:
+                - { name: twig.extension }

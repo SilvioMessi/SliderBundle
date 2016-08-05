@@ -1,0 +1,41 @@
+{##
+ # This file is part of the SilvioMessiSliderBundle package.
+ #
+ # (c) SilvioMessi <https://github.com/SilvioMessi/SliderBundle>
+ #
+ # For the full copyright and license information, please view the LICENSE
+ # file that was distributed with this source code.
+ #}
+
+{% javascripts '@SilvioMessiSliderBundle/Resources/public/js/noUiSlider/*' %}
+<script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script>
+    var slider = document.getElementById('slider');
+    var sliderValue = document.getElementById('slider-value');
+
+    noUiSlider.create(slider, {
+        start: [{{ options.start|join(',') }}],
+        range: {
+            'min': [{{ options.range_min|join(',') }}],
+            'max': [{{ options.range_max|join(',') }}],
+            {% if options.range_steps is defined %}
+            {% for percentage, step in options.range_steps %}
+            '{{ percentage }}': [{{ step|join(',') }}],
+            {% endfor %}
+            {% endif %}
+        },
+        {% if options.step is defined %}
+        step: {{ options.step }},
+        {% endif %}
+        {% if options.connect is defined %}
+        connect: {{ options.connect ? 'true':'false' }},
+        {% endif %}
+    });
+
+
+    slider.noUiSlider.on('update', function (values, handle) {
+        sliderValue.innerHTML = values[handle];
+    });
+</script>

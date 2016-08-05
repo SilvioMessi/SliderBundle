@@ -1,0 +1,35 @@
+{
+  "name": "silviomessi/sliderbundle",
+  "type": "symfony-bundle",
+  "description": "Symfony Slider Bundle",
+  "keywords": [
+    "symfony2",
+    "symfony3",
+    "slider",
+    "noUiSlider"
+  ],
+  "homepage": "https://github.com/SilvioMessi/SliderBundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Silvio Messi"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/SilvioMessi/SliderBundle/issues"
+  },
+  "require": {
+    "php": ">=5.3.3",
+    "symfony/framework-bundle": "~2.6|~3.0",
+    "symfony/options-resolver": "~2.6|~3.0",
+    "symfony/assetic-bundle": "v2.8.0"
+  },
+  "suggest": {
+  },
+  "autoload": {
+    "psr-0": {
+      "SilvioMessi\\SliderBundle": ""
+    }
+  },
+  "target-dir": "SilvioMessi/SliderBundle"
+}
