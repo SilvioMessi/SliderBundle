@@ -14,7 +14,7 @@
 
 1. [slider_id](#1-slider_id)
 2. [start](#2-start)
-3. [range_min & range_max](#3-range_min-&-range_max)
+3. [range_min & range_max](#3-range_min-and-range_max)
 4. [connect](#4-connect)
 5. [step](#5-step)
 6. [range_steps](#6-range_steps)
@@ -38,7 +38,7 @@ $slider->setOptions(array(
         ));
 ```
 
-## 3. range_min & range_max
+## 3. range_min and range_max
 
 All values on the slider are part of a range. The range has a minimum and maximum value. The range_min option sets the lower bound of the range, the range_max, instead, the upper bound.
 
@@ -103,6 +103,8 @@ $slider->setOptions(array(
 ```
 
 For every subrange in a non-linear slider, stepping can be set. Note how in the example below the slider doesn't step until it reaches 500. From there on, it changes in increments of 500, until it reaches 4000, where increments now span 1000.
+
+### Example
 
 ``` php
 $slider->setOptions(array(

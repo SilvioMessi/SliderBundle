@@ -103,7 +103,7 @@ return $this->render('default/index.html.twig', [
 
 ## Documentation
 
-[Slider Options](https://github.com/SilvioMessi/DatatablesBundle/blob/master/Resources/doc/options.md)
+[Slider Options](https://github.com/SilvioMessi/SliderBundle/blob/master/Resources/doc/options.md)
 
 ## License
 
