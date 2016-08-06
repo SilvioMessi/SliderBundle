@@ -61,8 +61,7 @@ $slider->setOptions(array(
                     'slider_id' => 'my_slider',
                     'start' => array(0),
                     'range_min' => 0,
-                    'range_max' => 100,
-                    'connect' => false
+                    'range_max' => 100
                     ));
 
 //...

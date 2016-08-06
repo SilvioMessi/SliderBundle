@@ -71,7 +71,34 @@ class Slider
 
         $resolver->setDefined('connect');
         $resolver->setAllowedTypes('connect', 'string');
-        $resolver->setAllowedValues('connect', array('lower', 'upper', 'true'));
+        $resolver->setAllowedValues('connect', array('lower', 'upper', 'true', 'false'));
+        $resolver->setDefault('connect', 'false');
+
+        $resolver->setDefined('margin');
+        $resolver->setAllowedTypes('margin', 'numeric');
+
+        $resolver->setDefined('limit');
+        $resolver->setAllowedTypes('margin', 'numeric');
+
+        $resolver->setDefined('orientation');
+        $resolver->setAllowedTypes('orientation', 'string');
+        $resolver->setAllowedValues('orientation', array('vertical', 'horizontal'));
+        $resolver->setDefault('orientation', 'horizontal');
+
+        $resolver->setDefined('slider_dimension');
+        $resolver->setAllowedTypes('slider_dimension', 'array');
+
+        $resolver->setDefined('direction');
+        $resolver->setAllowedTypes('direction', 'string');
+        $resolver->setAllowedValues('direction', array('ltr', 'rtl'));
+        $resolver->setDefault('direction', 'ltr');
+
+        $resolver->setDefined('animate');
+        $resolver->setAllowedTypes('animate', 'boolean');
+        $resolver->setDefault('animate', true);
+
+        $resolver->setDefined('animation_duration');
+        $resolver->setAllowedTypes('animation_duration', 'numeric');
 
         //events
         $resolver->setDefined('update_event');

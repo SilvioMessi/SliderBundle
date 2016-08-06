@@ -25,20 +25,38 @@
                 {% for percentage, percentage_info in options.range_steps %}
                 '{{ percentage }}': [
                     {% if percentage_info.value is defined %}
-                        {{ percentage_info.value }}
-                        {% if percentage_info.step is defined %}
-                            ,{{ percentage_info.step }}
-                        {% endif %}
+                    {{ percentage_info.value }}
+                    {% if percentage_info.step is defined %}
+                    ,{{ percentage_info.step }}
+                    {% endif %}
                     {% endif %}
                 ],
                 {% endfor %}
                 {% endif %}
             },
             {% if options.connect is defined %}
-            connect: "{{ options.connect }}",
+            connect: '{{ options.connect }}',
             {% endif %}
             {% if options.step is defined %}
             step: {{ options.step }},
+            {% endif %}
+            {% if options.margin is defined %}
+            margin: {{ options.margin }},
+            {% endif %}
+            {% if options.limit is defined %}
+            limit: {{ options.limit }},
+            {% endif %}
+            {% if options.orientation is defined %}
+            orientation: '{{ options.orientation }}',
+            {% endif %}
+            {% if options.direction is defined %}
+            direction: '{{ options.direction }}',
+            {% endif %}
+            {% if options.animate is defined %}
+            animate: {{ options.animate ? 'true' : 'false' }},
+            {% endif %}
+            {% if options.animation_duration is defined %}
+            animationDuration: {{ options.animation_duration }},
             {% endif %}
         });
     }
