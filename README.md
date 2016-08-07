@@ -45,7 +45,7 @@ class AppKernel extends Kernel
 
 ### Step 3: Installing Assetic
 
-Starting from Symfony 2.8, Assetic is no longer included by default in the Symfony Standard Edition.
+Starting from Symfony 2.8, Assetic is no longer included by default in the Symfony Standard Edition.  
 ***Please follow all steps described [here](https://symfony.com/doc/current/assetic/asset_management.html#installing-and-enabling-assetic) for installing Assetic.***
 
 ## Usage

@@ -1,21 +1,21 @@
 # Available Options
 
-| Option               | Type           | Mandatory  |
-|----------------------|----------------|------------|
-| slider_id            | string         | yes        |
-| start                | array          | yes        |
-| range_min            | numeric        | yes        |
-| range_max            | numeric        | yes        |
-| connect              | string         | no         |
-| step                 | numeric        | no         |
-| range_steps          | array          | no         |
-| margin               | numeric        | no         |
-| limit                | numeric        | no         |
-| orientation          | string         | no         |
-| slider_dimension     | array          | no         |
-| direction            | string         | no         |
-| animate              | boolean        | no         |
-| animation_duration   | numeric        | no         |
+| Option               | Type           | Mandatory  | Accepted values                   | Default      |
+|----------------------|----------------|------------|-----------------------------------|--------------|
+| slider_id            | string         | yes        |                                   |              |
+| start                | array          | yes        |                                   |              |
+| range_min            | numeric        | yes        |                                   |              |
+| range_max            | numeric        | yes        |                                   |              |
+| connect              | string         | no         | 'lower', 'upper', 'true', 'false' | 'false'      |
+| step                 | numeric        | no         |                                   |              |
+| range_steps          | array          | no         |                                   |              |
+| margin               | numeric        | no         |                                   |              |
+| limit                | numeric        | no         |                                   |              |
+| orientation          | string         | no         | 'vertical', 'horizontal'          | 'horizontal' |
+| slider_dimension     | array          | no         |                                   |              |
+| direction            | string         | no         | 'ltr', 'rtl'                      | 'ltr'        |
+| animate              | boolean        | no         | true, false                       | true         |
+| animation_duration   | numeric        | no         |                                   |              |
 
 # Options Description
 
@@ -40,7 +40,18 @@ The slider_id option allows to define ad unique identifier for the javascript sl
 
 The start option sets the number of handles (max 2) and their start positions, relative to range.
 
-### Example
+### Example (one handle)
+
+``` php
+$slider->setOptions(array(
+            'slider_id' => 'my_slider',
+            'start' => array(0),
+            'range_min' => 0,
+            'range_max' => 100
+        ));
+```
+
+### Example (two handles)
 
 ``` php
 $slider->setOptions(array(
@@ -164,8 +175,7 @@ $slider->setOptions(array(
 
 ## 9. orientation
 
-The orientation setting can be used to set the slider to "vertical" or "horizontal".
-
+The orientation setting can be used to set the slider to "vertical" or "horizontal".  
 Set dimensions! Vertical sliders don't assume a default height, so you'll need to set one. See slider_dimension option.
 
 ### Example
@@ -182,7 +192,7 @@ $slider->setOptions(array(
 
 ## 10. slider_dimension
 
-The slider_dimension setting allows to set the slider width when the orientation setting is set to horizontal or the slider height when the orientation setting is set to horizontal. You can use any unit you want, including % or px.
+The slider_dimension setting allows to set the slider width (when the orientation setting is set to horizontal) or the slider height (when the orientation setting is set to vertical). You can use any unit you want, including % or px.
 
 ### Example
 
@@ -210,10 +220,25 @@ $slider->setOptions(array(
         ));
 ```
 
-## 11. animate and animation_duration
+## 11. direction
 
-Set the animate option to false to prevent the slider from animating to a new value with when calling ```.val()```.
+By default the sliders are top-to-bottom and left-to-right, but you can change this using the direction option, which decides where the upper side of the slider is.
 
+### Example
+
+``` php
+$slider->setOptions(array(
+            'slider_id' => 'my_slider',
+            'start' => array(10, 20),
+            'range_min' => 0,
+            'range_max' => 100,
+            'direction' => 'rtl'
+        ));
+```
+
+## 12. animate and animation_duration
+
+Set the animate option to false to prevent the slider from animating to a new value with when calling ```.val()```.  
 The animation_duration option can be used to set the animation speed assumed by the slider library.
 
 ### Example
