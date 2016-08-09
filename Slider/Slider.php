@@ -100,6 +100,9 @@ class Slider
         $resolver->setDefined('animation_duration');
         $resolver->setAllowedTypes('animation_duration', 'numeric');
 
+        $resolver->setDefined('tooltips');
+        $resolver->setAllowedTypes('tooltips', 'array');
+
         //events
         $resolver->setDefined('update_event');
 

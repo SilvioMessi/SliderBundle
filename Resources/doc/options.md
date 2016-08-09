@@ -16,6 +16,7 @@
 | direction            | string         | no         | 'ltr', 'rtl'                      | 'ltr'        |
 | animate              | boolean        | no         | true, false                       | true         |
 | animation_duration   | numeric        | no         |                                   |              |
+| tooltips             | array          | no         |                                   |              |
 
 # Options Description
 
@@ -31,6 +32,7 @@
 10. [slider_dimension](#10-slider_dimension)
 11. [direction](#11-direction)
 12. [animate and animation_duration](#12-animate-and-animation_duration)
+13. [tooltips](#13-tooltips)
 
 ## 1. slider_id
 
@@ -132,7 +134,7 @@ For every subrange in a non-linear slider, stepping can be set. Note how in the 
 
 ``` php
 $slider->setOptions(array(
-            'slider_id' => 'test',
+            'slider_id' => 'my_slider',
             'start' => array(500, 4000),
             'range_min' => 0,
             'range_max' => 10000,
@@ -256,12 +258,40 @@ $slider->setOptions(array(
 ### Example
 
 ``` php
- $slider->setOptions(array(
+$slider->setOptions(array(
+        'slider_id' => 'my_slider',
+        'start' => array(10),
+        'range_min' => 0,
+        'range_max' => 100,
+        'animate' => true,
+        'animation_duration' => 100
+    ));
+```
+
+## 13. tooltips
+
+NoUiSlider can provide a basic tooltip without using its events system.
+
+### Example
+
+``` php
+$slider->setOptions(array(
             'slider_id' => 'my_slider',
             'start' => array(10),
             'range_min' => 0,
             'range_max' => 100,
-            'animate' => true,
-            'animation_duration' => 100
+            'tooltips' => array('first_handle' => true),
         ));
+```
+
+### Example
+
+``` php
+$slider->setOptions(array(
+         'slider_id' => 'my_slider',
+         'start' => array(10, 20),
+         'range_min' => 0,
+         'range_max' => 100,
+         'tooltips' => array('first_handle' => false, 'second_handle' => true),
+     ));
 ```

@@ -35,7 +35,13 @@
                 {% endif %}
             },
             {% if options.connect is defined %}
+            {% if options.connect == 'true' %}
+            connect: true,
+            {% elseif options.connect == 'false' %}
+            connect: false,
+            {% else %}
             connect: '{{ options.connect }}',
+            {% endif %}
             {% endif %}
             {% if options.step is defined %}
             step: {{ options.step }},
@@ -57,6 +63,20 @@
             {% endif %}
             {% if options.animation_duration is defined %}
             animationDuration: {{ options.animation_duration }},
+            {% endif %}
+            {% if options.tooltips is defined %}
+            tooltips: [
+                {% if options.tooltips.first_handle is defined and options.tooltips.first_handle == true %}
+                true
+                {% else %}
+                false
+                {% endif %}
+                {% if options.tooltips.second_handle is defined and options.tooltips.second_handle == true and options.start|length == 2 %}
+                ,true
+                {% elseif options.start|length == 2  %}
+                ,false
+                {% endif %}
+            ]
             {% endif %}
         });
     }
